@@ -7,8 +7,39 @@
     <!-- Library Scripts -->
     <script src="js/angular.min.js" charset="utf-8"></script>
 
+    <!-- Application Script -->
+    <script src="app/app.js" charset="utf-8"></script>
+
+    <!-- Application controllers -->
+    <script src="app/products/productListCtrl.js" charset="utf-8"></script>
+
   </head>
-  <body ng-app>
-    
+  <body ng-app="productManagement">
+    <table ng-controller="ProductListCtrl as vm">
+
+      <thead>
+        <tr>
+          <td><button type="button" name="button" ng-click="vm.toggleImage()"> {{ vm.showImage ? "Hide" : "Show" }} Image</button></td>
+          <td>Product</td>
+          <td>Code</td>
+          <td>Available</td>
+          <td>Price</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="product in vm.products">
+          <td>
+            <img ng-if="vm.showImage"
+                 ng-src="{{ product.imageUrl }}"
+                 title="{{ product.productName }}"
+                 style="width:70px;margin:2px">
+          </td>
+          <td>{{ product.productName}}</td>
+          <td>{{ product.productCode }}</td>
+          <td>{{ product.releaseDate }}</td>
+          <td>{{ product.price | currency }}</td>
+        </tr>
+      </tbody>
+    </table>
   </body>
 </html>
