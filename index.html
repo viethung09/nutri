@@ -26,38 +26,40 @@
   </head>
   <body ng-app="productManagement">
 
-      <div class="row">
-        <div class="col-md-4 table-responsive">
-          <table ng-controller="ProductListCtrl as vm" class="table table-hover">
+      <div class="panel panel-primary">
+        <div class="panel-body">
+          <div class="col-md-4 table-responsive">
+            <table ng-controller="ProductListCtrl as vm" class="table table-hover">
 
-            <thead>
-              <tr>
-                <td><button type="button" class="btn btn-primary" name="button"
-                            ng-click="vm.toggleImage()"> {{ vm.showImage ? "Hide" : "Show" }} Image
-                    </button>
-                </td>
-                <td>Product</td>
-                <td>Code</td>
-                <td>Available</td>
-                <td>Price</td>
-              </tr>
-            </thead>
-            <tbody>
-              <tr ng-repeat="product in vm.products">
-                <td>
-                  <img ng-if="vm.showImage"
-                       ng-src="{{ product.imageUrl }}"
-                       title="{{ product.productName }}"
-                       style="width:140px;margin:2px"
-                       class="img-thumbnail">
-                </td>
-                <td>{{ product.productName}}</td>
-                <td>{{ product.productCode }}</td>
-                <td>{{ product.releaseDate }}</td>
-                <td>{{ product.price | currency }}</td>
-              </tr>
-            </tbody>
-          </table>
+              <thead>
+                <tr>
+                  <td><button type="button" class="btn btn-primary" name="button"
+                              ng-click="vm.toggleImage()"> {{ vm.showImage ? "Hide" : "Show" }} Image
+                      </button>
+                  </td>
+                  <td>Product</td>
+                  <td>Code</td>
+                  <td>Available</td>
+                  <td>Price</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="product in vm.products">
+                  <td>
+                    <img ng-if="vm.showImage"
+                         ng-src="{{ product.imageUrl }}"
+                         title="{{ product.productName }}"
+                         style="width:140px;margin:2px"
+                         class="img-thumbnail">
+                  </td>
+                  <td>{{ product.productName}}</td>
+                  <td>{{ product.productCode }}</td>
+                  <td>{{ product.releaseDate }}</td>
+                  <td>{{ product.price | currency }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
 
     </div>
